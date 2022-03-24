@@ -1,0 +1,9 @@
+on:
+  push:
+    tags:
+      - NEW
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    run: curl -X POST "https://discord.com/api/webhooks/956576437438144553/xNYYavQlz0tRZnNH46Cgirr3UCtIzfO5B1fs9rG14F04WXmZW8i5__4mqBaE5LFhg_qh" -d "content=NEW COMMIT"
