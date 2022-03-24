@@ -1,6 +1,17 @@
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      postLink:
+        decription: "Link to post"
+        required: true
+        type: string
+      postTitle:
+        description: "Post title"
+        required: true
+        type: string
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    run: curl -X POST "https://discord.com/api/webhooks/956576437438144553/xNYYavQlz0tRZnNH46Cgirr3UCtIzfO5B1fs9rG14F04WXmZW8i5__4mqBaE5LFhg_qh" -d "content=NEW COMMIT"
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      run: curl -X POST "https://discord.com/api/webhooks/956576437438144553/xNYYavQlz0tRZnNH46Cgirr3UCtIzfO5B1fs9rG14F04WXmZW8i5__4mqBaE5LFhg_qh" -d "content=NEW COMMIT link: [${{ github.event.inputs.postLink }}](${{ github.event.inputs.postTitle }})"
