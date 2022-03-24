@@ -1,7 +1,4 @@
-on:
-  push:
-    tags:
-      - NEW
+on: [push]
 
 jobs:
   runs-on: ubuntu-latest
